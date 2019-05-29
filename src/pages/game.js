@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Tile from "../components/tile";
 import Img from "../components/img";
 import Nav from "../components/nav";
 import pokemon from "../pokemon.json";
