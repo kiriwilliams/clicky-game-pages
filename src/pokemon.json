@@ -1,119 +1,119 @@
 [{
     "id": 1,
     "clicked": false,
-    "src": "/images/Bulbasaur.png"},
+    "src": "./images/Bulbasaur.png"},
 {
     "id": 2,
     "clicked": false,
-    "src": "../images/Charmander.png"
+    "src": "./images/Charmander.png"
 },
 {
     "id": 3,
     "clicked": false,
-    "src": "../images/Chespin.png"
+    "src": "./images/Chespin.png"
 },
 {
     "id": 4,
     "clicked": false,
-    "src": "../images/Chikorita.png"
+    "src": "./images/Chikorita.png"
 },
 {
     "id": 5,
     "clicked": false,
-    "src": "../images/Chimchar.png"
+    "src": "./images/Chimchar.png"
 },
 {
     "id": 6,
     "clicked": false,
-    "src": "../images/Cyndaquil.png"
+    "src": "./images/Cyndaquil.png"
 },
 {
     "id": 7,
     "clicked": false,
-    "src": "../images/Fennekin.png"
+    "src": "./images/Fennekin.png"
 },
 {
     "id": 8,
     "clicked": false,
-    "src": "../images/Froakie.png"
+    "src": "./images/Froakie.png"
 },
 {
     "id": 9,
     "clicked": false,
-    "src": "../images/Grookey.png"
+    "src": "./images/Grookey.png"
 },
 {
     "id": 10,
     "clicked": false,
-    "src": "../images/Litten.png"
+    "src": "./images/Litten.png"
 },
 {
     "id": 11,
     "clicked": false,
-    "src": "../images/Mudkip.png"
+    "src": "./images/Mudkip.png"
 },
 {
     "id": 12,
     "clicked": false,
-    "src": "../images/Oshawott.png"
+    "src": "./images/Oshawott.png"
 },
 {
     "id": 13,
     "clicked": false,
-    "src": "../images/Piplup.png"
+    "src": "./images/Piplup.png"
 },
 {
     "id": 14,
     "clicked": false,
-    "src": "../images/Popplio.png"
+    "src": "./images/Popplio.png"
 },
 {
     "id": 15,
     "clicked": false,
-    "src": "../images/Rowlet.png"
+    "src": "./images/Rowlet.png"
 },
 {
     "id": 16,
     "clicked": false,
-    "src": "../images/Scorbunny.png"
+    "src": "./images/Scorbunny.png"
 },
 {
     "id": 17,
     "clicked": false,
-    "src": "../images/Snivy.png"
+    "src": "./images/Snivy.png"
 },
 {
     "id": 18,
     "clicked": false,
-    "src": "../images/Sobble.png"
+    "src": "./images/Sobble.png"
 },
 {
     "id": 19,
     "clicked": false,
-    "src": "../images/Squirtle.png"
+    "src": "./images/Squirtle.png"
 },
 {
     "id": 20,
     "clicked": false,
-    "src": "../images/Tepig.png"
+    "src": "./images/Tepig.png"
 },
 {
     "id": 21,
     "clicked": false,
-    "src": "../images/Torchic.png"
+    "src": "./images/Torchic.png"
 },
 {
     "id": 22,
     "clicked": false,
-    "src": "../images/Totodile.png"
+    "src": "./images/Totodile.png"
 },
 {
     "id": 23,
     "clicked": false,
-    "src": "../images/Treecko.png"
+    "src": "./images/Treecko.png"
 },
 {
     "id": 24,
     "clicked": false,
-    "src": "../images/Turtwig.png"
+    "src": "./images/Turtwig.png"
 }]
