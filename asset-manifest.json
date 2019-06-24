@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/clicky-game-pages/static/css/main.ba49ec77.chunk.css",
-    "main.js": "/clicky-game-pages/static/js/main.3d522440.chunk.js",
-    "main.js.map": "/clicky-game-pages/static/js/main.3d522440.chunk.js.map",
-    "runtime~main.js": "/clicky-game-pages/static/js/runtime~main.619b02fb.js",
-    "runtime~main.js.map": "/clicky-game-pages/static/js/runtime~main.619b02fb.js.map",
-    "static/js/2.98dcc9dd.chunk.js": "/clicky-game-pages/static/js/2.98dcc9dd.chunk.js",
-    "static/js/2.98dcc9dd.chunk.js.map": "/clicky-game-pages/static/js/2.98dcc9dd.chunk.js.map",
-    "index.html": "/clicky-game-pages/index.html",
-    "precache-manifest.0beeeeb3f8c8bdca994d79ed8e9f1cdb.js": "/clicky-game-pages/precache-manifest.0beeeeb3f8c8bdca994d79ed8e9f1cdb.js",
-    "service-worker.js": "/clicky-game-pages/service-worker.js",
-    "static/css/main.ba49ec77.chunk.css.map": "/clicky-game-pages/static/css/main.ba49ec77.chunk.css.map"
+    "main.css": "/pokemon-memory-game/static/css/main.ba49ec77.chunk.css",
+    "main.js": "/pokemon-memory-game/static/js/main.a09eb5e6.chunk.js",
+    "main.js.map": "/pokemon-memory-game/static/js/main.a09eb5e6.chunk.js.map",
+    "runtime~main.js": "/pokemon-memory-game/static/js/runtime~main.695fffee.js",
+    "runtime~main.js.map": "/pokemon-memory-game/static/js/runtime~main.695fffee.js.map",
+    "static/js/2.98dcc9dd.chunk.js": "/pokemon-memory-game/static/js/2.98dcc9dd.chunk.js",
+    "static/js/2.98dcc9dd.chunk.js.map": "/pokemon-memory-game/static/js/2.98dcc9dd.chunk.js.map",
+    "index.html": "/pokemon-memory-game/index.html",
+    "precache-manifest.99060301fcec60bc039cb78c38d206e8.js": "/pokemon-memory-game/precache-manifest.99060301fcec60bc039cb78c38d206e8.js",
+    "service-worker.js": "/pokemon-memory-game/service-worker.js",
+    "static/css/main.ba49ec77.chunk.css.map": "/pokemon-memory-game/static/css/main.ba49ec77.chunk.css.map"
   }
 }
