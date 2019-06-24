@@ -2,7 +2,7 @@
   "name": "react-gh-pages",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://kiriwilliams.github.io/clicky-game-pages",
+  "homepage": "http://kiriwilliams.github.io/pokemon-memory-game",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
