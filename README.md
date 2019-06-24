@@ -2,8 +2,8 @@
 A fun memory game that runs in browser.
 
 ## [Play the game!](https://kiriwilliams.github.io/clicky-game-pages/)
+
 How well do you know your starter pokemon? Your goal is to click each starter pokemon exactly once, but watch out! They shuffle each time you click!
-------
 
 ## How it Works
 ------
