@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
-
+const style = {
+    width: "15%",
+    height: "auto"
+}
 
 class Image extends Component {
     state = {
@@ -29,7 +32,7 @@ class Image extends Component {
 
     render() {
         return (
-            <img src={this.props.src} id={this.props.id} alt={this.props.src} onClick={this.props.handleClick}></img> 
+            <img src={this.props.src} id={this.props.id} alt={this.props.src} onClick={this.props.handleClick} style={style}></img> 
         )
     }
 

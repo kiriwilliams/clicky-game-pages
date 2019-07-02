@@ -86,15 +86,13 @@ class Game extends Component {
                     <Nav currentScore={this.state.currentScore} highScore={this.state.highScore}/>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-12">
-                        <div>
+                <div className="row container mx-auto mt-5">
+                    <div className="col-12 text-center">
                             {this.state.pokemon.map(pokemon => {
                                 return (
                                     <Img key={pokemon.id} id={pokemon.id} src={pokemon.src} handleClick={this.handleClick} endGame={this.endGame} shuffle={this.shuffle} incrementScore={this.incrementScore} reset={this.reset} />
                                 )
                             })}
-                        </div>
                     </div>
                 </div>
             </div>
