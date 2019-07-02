@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 const style = {
     width: "15%",
-    height: "auto"
+    height: "auto",
+    margin: "3px"
 }
 
 class Image extends Component {

@@ -87,7 +87,7 @@ class Game extends Component {
                     </div>
                 </div>
                 <div className="row container mx-auto mt-5">
-                    <div className="col-12 text-center">
+                    <div className="col-12 text-center bg-white p-3">
                             {this.state.pokemon.map(pokemon => {
                                 return (
                                     <Img key={pokemon.id} id={pokemon.id} src={pokemon.src} handleClick={this.handleClick} endGame={this.endGame} shuffle={this.shuffle} incrementScore={this.incrementScore} reset={this.reset} />
