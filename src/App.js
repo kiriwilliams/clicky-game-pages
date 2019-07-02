@@ -9,7 +9,7 @@ const bgPattern = {
 
 function App() {
   return (
-    <div style={bgPattern}>
+    <div style={bgPattern} className="h-100">
       <Game />
     </div>
   );
