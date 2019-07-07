@@ -21,7 +21,7 @@ export default function Modal(props) {
                             <li>Once you click the same pokemon twice it's game over.</li>
                         </ul>
                         <h5 className="modal-title">About the Game</h5>
-                        <p>This game was created using React and Bootstrap. View the code or fork the repo on <a>github</a></p>
+                        <p>This game was created using React and Bootstrap. View the code or fork the repo on <a href="https://github.com/kiriwilliams/pokemon-memory-game/tree/master">github.com/kiriwilliams</a></p>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-primary" onClick={() => props.toggleModal()}>Let's play!</button>
