@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Game from "./pages/game";
+import Modal from "./components/modal";
 import pokemon from "./pokemon.json";
 // import { url } from 'inspector';
 
@@ -90,6 +91,9 @@ class App extends Component {
     return (
       <div style={bgPattern} className="h-100">
         <Game currentScore={this.state.currentScore} highScore={this.state.highScore} toggleModal={this.toggleModal} pokemon={this.state.pokemon} handleClick={this.handleClick} endGame={this.endGame} shuffle={this.stuffle} incrementScore={this.incrementScore} reset={this.reset} />
+
+        <Modal modalOpen={this.state.modalOpen} toggleModal={this.toggleModal}/>
+        <div className={this.state.modalOpen ? "modal-backdrop" : "d-none"} onClick={() => this.toggleModal()}></div>
       </div>
     );
   }
