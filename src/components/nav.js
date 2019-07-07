@@ -12,8 +12,7 @@ export default function Nav(props) {
 
             </span>
             <span className="ml-auto mr-2">
-            <button className="btn btn-outline-light mr-2" onClick={() => props.toggleModal()}>Instructions</button>
-            <button className="btn btn-outline-light mr-2">About</button>
+            <button className="btn btn-outline-light mr-2" onClick={() => props.toggleModal()}>About</button>
             </span>
             
 
