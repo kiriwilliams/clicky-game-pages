@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6b714d8e2d1b78ed70340dd6e8efc90e",
+    "revision": "6081d40b3f6e3eab17b2d31712ca0a20",
     "url": "/pokemon-memory-game/index.html"
   },
   {
-    "revision": "8eb1084fe3c70c2260d4",
+    "revision": "192f45f9043073db0efa",
     "url": "/pokemon-memory-game/static/css/main.ba49ec77.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pokemon-memory-game/static/js/2.98dcc9dd.chunk.js"
   },
   {
-    "revision": "8eb1084fe3c70c2260d4",
-    "url": "/pokemon-memory-game/static/js/main.d0bedfb9.chunk.js"
+    "revision": "192f45f9043073db0efa",
+    "url": "/pokemon-memory-game/static/js/main.aae3f74e.chunk.js"
   },
   {
     "revision": "654edaacb40695af11dd",
