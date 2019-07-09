@@ -14,23 +14,34 @@ class App extends Component {
   state = {
     currentScore: 0,
     highScore: 0,
+    level: 1,
     pokemon: pokemon,
     modalOpen: toggle
   }
 
+  componentDidMount = () => {
+    this.shuffle(4);
+    this.setState({ pokemon: this.state.pokemon.slice(0,4)})
+  }
+
+  //Ends the game
+  //sets high score
+  //resets game to play again
   endGame = () => {
     alert("game over");
     if (this.state.currentScore > this.state.highScore) {
       this.setState({ highScore: this.state.currentScore });
     }
-    this.setState({ currentScore: 0 });
+    this.setState({ currentScore: 0, level: 1 });
 
-    let updatePokemon = this.state.pokemon;
+    let updatePokemon = pokemon;
     updatePokemon.forEach(pokemon => pokemon.clicked = false);
     this.setState({ pokemon: updatePokemon });
     this.shuffle();
   }
 
+
+  //shuffles pokemon on the board
   shuffle = () => {
     //Fisher-Yates (aka Knuth) Shuffle.
     function shuffle(array) {
@@ -54,8 +65,28 @@ class App extends Component {
     this.setState({ pokemon: shuffle(this.state.pokemon) });
   }
 
+  //increases the score in the state and update level if necessary
   incrementScore = () => {
-    this.setState({ currentScore: this.state.currentScore + 1 })
+    this.setState({ currentScore: this.state.currentScore + 1 });
+    //checks score at different points and sets level
+    switch (this.state.currentScore){
+      case 3:
+        this.nextLevel(2, 9);
+        break;
+      case 8:
+        this.nextLevel(3, 12);
+        break;
+      case 12:
+        this.nextLevel(4, 24);
+        break;
+      case 24:
+        this.bigWin();
+    }
+  }
+
+  //sets the level and determines how many images are in play
+  nextLevel(lvl, quantity){
+    this.setState({ level: lvl, pokemon: this.shuffle(pokemon).slice(0,quantity) });
   }
 
   toggleModal = (e) => {
