@@ -8,11 +8,13 @@ export default function Nav(props) {
           </a>
             <span className="text-light">
                <span className="m-2">Level: {props.currentLevel}</span> 
+               <span className="m-2">Score: {props.currentPoints} </span>
                 <span className="m-2">High Score: {props.highScore}</span>
+
 
             </span>
             <span className="ml-auto mr-2">
-            <button className="btn btn-outline-light mr-2" onClick={() => props.toggleModal()}>About</button>
+            <button className="btn btn-outline-light mr-2" onClick={() => props.toggleModal("about")}>About</button>
             </span>
             
 
