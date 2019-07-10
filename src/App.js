@@ -10,19 +10,23 @@ const bgPattern = {
 };
 const toggle = true;
 
+
 class App extends Component {
   state = {
     currentScore: 0,
+    currentPoints: 0,
     highScore: 0,
     level: 1,
     pokemon: pokemon,
-    modalOpen: toggle,
-    showLevel: "open"
+    aboutOpen: toggle,
+    levelOpen: false,
+
+
   }
 
   componentDidMount = () => {
     let activePokemon = this.shuffle(pokemon);
-    this.setState({ pokemon: activePokemon.slice(0, 4) })
+    this.setState({ pokemon: activePokemon.slice(0, 4),     modalOpen: this.state.aboutOpen || this.state.levelOpen })
   }
 
   //Ends the game
@@ -30,10 +34,10 @@ class App extends Component {
   //resets game to play again
   endGame = () => {
     alert("game over");
-    if (this.state.currentScore > this.state.highScore) {
-      this.setState({ highScore: this.state.currentScore });
+    if (this.state.currentPoints > this.state.highScore) {
+      this.setState({ highScore: this.state.currentPoints });
     }
-    this.setState({ currentScore: 0, level: 1 });
+    this.setState({ currentScore: 0, currentPoints: 0, level: 1 });
 
     let updatePokemon = this.clearClicks(pokemon);
 
@@ -69,12 +73,11 @@ class App extends Component {
 
   //increases the score in the state and update level if necessary
   incrementScore = () => {
-    this.setState({ currentScore: this.state.currentScore + 1 });
+    this.setState({ currentScore: this.state.currentScore + 1, currentPoints: this.state.currentPoints + 25 });
     //checks score at different points and sets level
     switch (this.state.currentScore) {
       case 3:
         this.nextLevel(2, 9);
-        // showLevel(2);
         break;
       case 12:
         this.nextLevel(3, 12);
@@ -84,22 +87,34 @@ class App extends Component {
         break;
       case 48:
         this.bigWin();
+        break;
+      default: 
+        return;
     }
   }
 
   //sets the level and determines how many images are in play
   nextLevel(lvl, quantity) {
+    this.toggleModal("level");
     this.setState({ level: lvl, pokemon: this.clearClicks(this.shuffle(pokemon).slice(0, quantity)) });
   }
 
-  //notifies user they progressed a level
-  showLevel(lvl) {
 
-  }
+  toggleModal = (modal) => {
+    let toggle;
+    switch(modal){
+      case "about":
+          toggle = this.state.aboutOpen ? false : true;
+          this.setState({ aboutOpen: toggle });
+        break;
+      case "level":
+          toggle = this.state.levelOpen ? false : true;
+          this.setState({ levelOpen: toggle });
+        break;
+      default:
+        return;
+    }
 
-  toggleModal = (e) => {
-    const toggle = this.state.modalOpen ? false : true;
-    this.setState({ modalOpen: toggle });
   }
 
   handleClick = event => {
@@ -128,9 +143,11 @@ class App extends Component {
   render() {
     return (
       <div style={bgPattern} className="h-100">
-        <Game currentLevel={this.state.level} highScore={this.state.highScore} toggleModal={this.toggleModal} pokemon={this.state.pokemon} handleClick={this.handleClick} endGame={this.endGame} shuffle={this.stuffle} incrementScore={this.incrementScore} reset={this.reset} />
+        <Game currentLevel={this.state.level} currentPoints={this.state.currentPoints} highScore={this.state.highScore} toggleModal={this.toggleModal} pokemon={this.state.pokemon} handleClick={this.handleClick} endGame={this.endGame} shuffle={this.stuffle} incrementScore={this.incrementScore} reset={this.reset} />
 
-        <Modal modalOpen={this.state.aboutOpen} toggleModal={this.toggleModal(aboutOpen)}>
+
+        {/* About Modal - instructions/link to github */}
+        <Modal name={"about"} title={"About"} modalOpen={this.state.aboutOpen} toggleModal={this.toggleModal}>
 
             <h5 className="modal-title">How to Play</h5>
             <ul>
@@ -140,10 +157,16 @@ class App extends Component {
             </ul>
             <h5 className="modal-title">About the Game</h5>
             <p>This game was created using React and Bootstrap. View the code or fork the repo on <a href="https://github.com/kiriwilliams/pokemon-memory-game/tree/master">github.com/kiriwilliams</a></p>
-
         </Modal>
 
-        <div className={this.state.modalOpen ? "modal-backdrop" : "d-none"} onClick={() => this.toggleModal()}></div>
+        {/* Level Modal */}
+        <Modal name={"level"} title={"Level Up!"} modalOpen={this.state.levelOpen} toggleModal={this.toggleModal}>
+          Ready for level {this.state.level}?
+        </Modal>
+
+
+        {/* Modal Backdrop */}
+        <div className={this.state.aboutOpen || this.state.levelOpen ?  "modal-backdrop" : "d-none"} onClick={() => this.toggleModal(this.state.aboutOpen ? "about" : "level")}></div>
       </div>
     );
   }
