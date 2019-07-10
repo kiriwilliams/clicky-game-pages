@@ -20,8 +20,8 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.shuffle(4);
-    this.setState({ pokemon: this.state.pokemon.slice(0,4)})
+    let activePokemon = this.shuffle(pokemon);
+    this.setState({ pokemon: activePokemon.slice(0,4)})
   }
 
   //Ends the game
@@ -34,17 +34,20 @@ class App extends Component {
     }
     this.setState({ currentScore: 0, level: 1 });
 
-    let updatePokemon = pokemon;
-    updatePokemon.forEach(pokemon => pokemon.clicked = false);
-    this.setState({ pokemon: updatePokemon });
-    this.shuffle();
+    let updatePokemon = this.clearClicks(pokemon);
+
+    this.setState({ pokemon: this.shuffle(updatePokemon).slice(0,4) });
   }
 
+  clearClicks = (array) => { 
+    array.forEach(pokemon => pokemon.clicked = false);
+    return array;
+  }
 
-  //shuffles pokemon on the board
-  shuffle = () => {
-    //Fisher-Yates (aka Knuth) Shuffle.
-    function shuffle(array) {
+  //Fisher-Yates (aka Knuth) Shuffle.
+  shuffle = (array) => {
+    
+    
       var currentIndex = array.length, temporaryValue, randomIndex;
 
       // While there remain elements to shuffle...
@@ -62,8 +65,6 @@ class App extends Component {
 
       return array;
     }
-    this.setState({ pokemon: shuffle(this.state.pokemon) });
-  }
 
   //increases the score in the state and update level if necessary
   incrementScore = () => {
@@ -86,7 +87,7 @@ class App extends Component {
 
   //sets the level and determines how many images are in play
   nextLevel(lvl, quantity){
-    this.setState({ level: lvl, pokemon: this.shuffle(pokemon).slice(0,quantity) });
+    this.setState({ level: lvl, score: 0, pokemon: this.clearClicks(this.shuffle(pokemon).slice(0,quantity)) });
   }
 
   toggleModal = (e) => {
@@ -112,8 +113,7 @@ class App extends Component {
     else {
       clickedPokemon.clicked = true;
       // event.target.setState({ clicked: true });
-      this.setState({ pokemon: pokeArray })
-      this.shuffle();
+      this.setState({ pokemon: this.shuffle(pokeArray) })
       this.incrementScore();
     }
 
@@ -121,7 +121,7 @@ class App extends Component {
   render() {
     return (
       <div style={bgPattern} className="h-100">
-        <Game currentScore={this.state.currentScore} highScore={this.state.highScore} toggleModal={this.toggleModal} pokemon={this.state.pokemon} handleClick={this.handleClick} endGame={this.endGame} shuffle={this.stuffle} incrementScore={this.incrementScore} reset={this.reset} />
+        <Game currentLevel={this.state.level} highScore={this.state.highScore} toggleModal={this.toggleModal} pokemon={this.state.pokemon} handleClick={this.handleClick} endGame={this.endGame} shuffle={this.stuffle} incrementScore={this.incrementScore} reset={this.reset} />
 
         <Modal modalOpen={this.state.modalOpen} toggleModal={this.toggleModal}/>
         <div className={this.state.modalOpen ? "modal-backdrop" : "d-none"} onClick={() => this.toggleModal()}></div>

@@ -7,7 +7,7 @@ export default function Nav(props) {
                 Pokemon Memory Game
           </a>
             <span className="text-light">
-               <span className="m-2">Score: {props.currentScore}</span> 
+               <span className="m-2">Level: {props.currentLevel}</span> 
                 <span className="m-2">High Score: {props.highScore}</span>
 
             </span>
