@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pokemon-memory-game/precache-manifest.dd673f29df5ac1b1ff94fbdd03050cce.js"
+  "/pokemon-memory-game/precache-manifest.add6c7d4a340a78d8112e72826fe1592.js"
 );
 
 self.addEventListener('message', (event) => {
