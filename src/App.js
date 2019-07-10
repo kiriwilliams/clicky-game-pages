@@ -16,12 +16,13 @@ class App extends Component {
     highScore: 0,
     level: 1,
     pokemon: pokemon,
-    modalOpen: toggle
+    modalOpen: toggle,
+    showLevel: "open"
   }
 
   componentDidMount = () => {
     let activePokemon = this.shuffle(pokemon);
-    this.setState({ pokemon: activePokemon.slice(0,4)})
+    this.setState({ pokemon: activePokemon.slice(0, 4) })
   }
 
   //Ends the game
@@ -36,58 +37,64 @@ class App extends Component {
 
     let updatePokemon = this.clearClicks(pokemon);
 
-    this.setState({ pokemon: this.shuffle(updatePokemon).slice(0,4) });
+    this.setState({ pokemon: this.shuffle(updatePokemon).slice(0, 4) });
   }
 
-  clearClicks = (array) => { 
+  clearClicks = (array) => {
     array.forEach(pokemon => pokemon.clicked = false);
     return array;
   }
 
   //Fisher-Yates (aka Knuth) Shuffle.
   shuffle = (array) => {
-    
-    
-      var currentIndex = array.length, temporaryValue, randomIndex;
 
-      // While there remain elements to shuffle...
-      while (0 !== currentIndex) {
 
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
 
-      return array;
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
     }
+
+    return array;
+  }
 
   //increases the score in the state and update level if necessary
   incrementScore = () => {
     this.setState({ currentScore: this.state.currentScore + 1 });
     //checks score at different points and sets level
-    switch (this.state.currentScore){
+    switch (this.state.currentScore) {
       case 3:
         this.nextLevel(2, 9);
-        break;
-      case 8:
-        this.nextLevel(3, 12);
+        // showLevel(2);
         break;
       case 12:
+        this.nextLevel(3, 12);
+        break;
+      case 36:
         this.nextLevel(4, 24);
         break;
-      case 24:
+      case 48:
         this.bigWin();
     }
   }
 
   //sets the level and determines how many images are in play
-  nextLevel(lvl, quantity){
-    this.setState({ level: lvl, score: 0, pokemon: this.clearClicks(this.shuffle(pokemon).slice(0,quantity)) });
+  nextLevel(lvl, quantity) {
+    this.setState({ level: lvl, pokemon: this.clearClicks(this.shuffle(pokemon).slice(0, quantity)) });
+  }
+
+  //notifies user they progressed a level
+  showLevel(lvl) {
+
   }
 
   toggleModal = (e) => {
@@ -123,7 +130,19 @@ class App extends Component {
       <div style={bgPattern} className="h-100">
         <Game currentLevel={this.state.level} highScore={this.state.highScore} toggleModal={this.toggleModal} pokemon={this.state.pokemon} handleClick={this.handleClick} endGame={this.endGame} shuffle={this.stuffle} incrementScore={this.incrementScore} reset={this.reset} />
 
-        <Modal modalOpen={this.state.modalOpen} toggleModal={this.toggleModal}/>
+        <Modal modalOpen={this.state.aboutOpen} toggleModal={this.toggleModal(aboutOpen)}>
+
+            <h5 className="modal-title">How to Play</h5>
+            <ul>
+              <li>The goal of the game is to click each pokemon <strong>one time</strong>. </li>
+              <li>Every time you click a pokemon they all get shuffled, so make sure to keep track of who you've already clicked!</li>
+              <li>Once you click the same pokemon twice it's game over.</li>
+            </ul>
+            <h5 className="modal-title">About the Game</h5>
+            <p>This game was created using React and Bootstrap. View the code or fork the repo on <a href="https://github.com/kiriwilliams/pokemon-memory-game/tree/master">github.com/kiriwilliams</a></p>
+
+        </Modal>
+
         <div className={this.state.modalOpen ? "modal-backdrop" : "d-none"} onClick={() => this.toggleModal()}></div>
       </div>
     );
