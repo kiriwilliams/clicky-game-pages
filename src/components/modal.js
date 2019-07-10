@@ -1,17 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
 const showModal = "modal fade show d-block";
 const hide = "d-none";
 
-let toggle = true;
 
 function Modal(props) {
     
-
-    // toggleModal = (e) => {
-    //     const toggle = this.state.modalOpen ? false : true;
-    //     this.setState({ modalOpen: toggle });
-    // }
     const modalName = props.name + "Modal";
     const modalLabel = props.name + "Label";
     
@@ -38,9 +32,7 @@ function Modal(props) {
                     </div>
                 </div>
             </div>
-
         )
     }
-
 
 export default Modal;
