@@ -95,11 +95,15 @@ class App extends Component {
 
   //sets the level and determines how many images are in play
   nextLevel(lvl, quantity) {
+
+    //show modal to inform user of level up
     this.toggleModal("level");
+
+    //update the level and quantity of pokemon in play
     this.setState({ level: lvl, pokemon: this.clearClicks(this.shuffle(pokemon).slice(0, quantity)) });
   }
 
-
+  //toggles modals. takes one string to identify which modal to toggle.
   toggleModal = (modal) => {
     let toggle;
     switch(modal){
