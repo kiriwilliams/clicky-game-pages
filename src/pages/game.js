@@ -10,7 +10,7 @@ function Game(props) {
         <div>
             <div className="row">
                 <div className="col-12">
-                    <Nav currentScore={props.currentScore} highScore={props.highScore} toggleModal={props.toggleModal} />
+                    <Nav currentLevel={props.currentLevel} currentPoints={props.currentPoints} highScore={props.highScore} toggleModal={props.toggleModal} />
                 </div>
             </div>
             <div className="row container mx-auto mt-5">
