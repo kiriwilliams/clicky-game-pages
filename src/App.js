@@ -9,14 +9,14 @@ const bgPattern = {
   background: 'url("./images/blu_stripes.png") repeat'
 };
 const toggle = true;
-
+const highScore = parseInt(localStorage.getItem("highScore")) || 0;
 
 class App extends Component {
   state = {
-    currentScore: 45,
+    currentScore: 0,
     currentPoints: 0,
-    highScore: localStorage.getItem("highScore") || 0,
-    level: 4,
+    highScore: highScore,
+    level: 1,
     pokemon: pokemon,
     aboutOpen: toggle,
     levelOpen: false,
@@ -35,6 +35,9 @@ class App extends Component {
   //resets game to play again
   endGame = (e) => {
     alert("game over");
+    if(e === "win"){
+      this.toggleModal("win");
+    }
     
     if (this.state.currentPoints > this.state.highScore) {
       this.setState({ highScore: this.state.currentPoints });
@@ -77,7 +80,15 @@ class App extends Component {
 
   //increases the score in the state and update level if necessary
   incrementScore = () => {
-    this.setState({ currentScore: this.state.currentScore + 1, currentPoints: this.state.currentPoints + 1 });
+    let newScore = this.state.currentScore + 1;
+
+    this.setState({ currentScore: newScore, currentPoints: this.state.currentPoints + 1 });
+
+    if (this.state.currentPoints >= this.state.highScore) {
+      this.setState({ highScore: newScore });
+
+    }
+    localStorage.setItem("highScore",this.state.highScore);
     //checks score at different points and sets level
     switch (this.state.currentScore) {
       case 3:
