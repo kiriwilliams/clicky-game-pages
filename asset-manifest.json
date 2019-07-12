@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pokemon-memory-game/static/css/main.ba49ec77.chunk.css",
-    "main.js": "/pokemon-memory-game/static/js/main.a27e57ef.chunk.js",
-    "main.js.map": "/pokemon-memory-game/static/js/main.a27e57ef.chunk.js.map",
+    "main.js": "/pokemon-memory-game/static/js/main.7b1ece10.chunk.js",
+    "main.js.map": "/pokemon-memory-game/static/js/main.7b1ece10.chunk.js.map",
     "runtime~main.js": "/pokemon-memory-game/static/js/runtime~main.695fffee.js",
     "runtime~main.js.map": "/pokemon-memory-game/static/js/runtime~main.695fffee.js.map",
     "static/js/2.97807068.chunk.js": "/pokemon-memory-game/static/js/2.97807068.chunk.js",
     "static/js/2.97807068.chunk.js.map": "/pokemon-memory-game/static/js/2.97807068.chunk.js.map",
     "index.html": "/pokemon-memory-game/index.html",
-    "precache-manifest.add6c7d4a340a78d8112e72826fe1592.js": "/pokemon-memory-game/precache-manifest.add6c7d4a340a78d8112e72826fe1592.js",
+    "precache-manifest.b157833e2eb7e983eef7f1eceb037f9f.js": "/pokemon-memory-game/precache-manifest.b157833e2eb7e983eef7f1eceb037f9f.js",
     "service-worker.js": "/pokemon-memory-game/service-worker.js",
     "static/css/main.ba49ec77.chunk.css.map": "/pokemon-memory-game/static/css/main.ba49ec77.chunk.css.map"
   }
