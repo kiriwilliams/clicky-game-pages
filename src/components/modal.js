@@ -27,7 +27,7 @@ function Modal(props) {
 
                         {/* Footer */}
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-primary" onClick={() => props.toggleModal(props.name)}>Let's play!</button>
+                            <button type="button" className="btn btn-primary" onClick={() => props.button(props.name)}>Let's play!</button>
                         </div>
                     </div>
                 </div>

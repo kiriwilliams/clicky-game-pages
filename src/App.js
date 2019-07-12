@@ -13,13 +13,14 @@ const toggle = true;
 
 class App extends Component {
   state = {
-    currentScore: 0,
+    currentScore: 45,
     currentPoints: 0,
-    highScore: 0,
-    level: 1,
+    highScore: localStorage.getItem("highScore") || 0,
+    level: 4,
     pokemon: pokemon,
     aboutOpen: toggle,
     levelOpen: false,
+    winOpen: false
 
 
   }
@@ -32,11 +33,14 @@ class App extends Component {
   //Ends the game
   //sets high score
   //resets game to play again
-  endGame = () => {
+  endGame = (e) => {
     alert("game over");
+    
     if (this.state.currentPoints > this.state.highScore) {
       this.setState({ highScore: this.state.currentPoints });
     }
+    localStorage.setItem("highScore",this.state.highScore);
+
     this.setState({ currentScore: 0, currentPoints: 0, level: 1 });
 
     let updatePokemon = this.clearClicks(pokemon);
@@ -73,7 +77,7 @@ class App extends Component {
 
   //increases the score in the state and update level if necessary
   incrementScore = () => {
-    this.setState({ currentScore: this.state.currentScore + 1, currentPoints: this.state.currentPoints + 25 });
+    this.setState({ currentScore: this.state.currentScore + 1, currentPoints: this.state.currentPoints + 1 });
     //checks score at different points and sets level
     switch (this.state.currentScore) {
       case 3:
@@ -82,11 +86,11 @@ class App extends Component {
       case 12:
         this.nextLevel(3, 12);
         break;
-      case 36:
+      case 24:
         this.nextLevel(4, 24);
         break;
-      case 48:
-        this.bigWin();
+      case 47:
+        this.toggleModal("win");
         break;
       default: 
         return;
@@ -114,6 +118,10 @@ class App extends Component {
       case "level":
           toggle = this.state.levelOpen ? false : true;
           this.setState({ levelOpen: toggle });
+        break;
+      case "win":
+        toggle = this.state.winOpen ? false : true;
+        this.setState({ winOpen: toggle });
         break;
       default:
         return;
@@ -151,7 +159,7 @@ class App extends Component {
 
 
         {/* About Modal - instructions/link to github */}
-        <Modal name={"about"} title={"About"} modalOpen={this.state.aboutOpen} toggleModal={this.toggleModal}>
+        <Modal name={"about"} title={"About"} modalOpen={this.state.aboutOpen} toggleModal={this.toggleModal} button={this.toggleModal}>
 
             <h5 className="modal-title">How to Play</h5>
             <ul>
@@ -164,10 +172,15 @@ class App extends Component {
         </Modal>
 
         {/* Level Modal */}
-        <Modal name={"level"} title={"Level Up!"} modalOpen={this.state.levelOpen} toggleModal={this.toggleModal}>
+        <Modal name={"level"} title={"Level Up!"} modalOpen={this.state.levelOpen} toggleModal={this.toggleModal} button={this.toggleModal}>
           Ready for level {this.state.level}?
         </Modal>
 
+
+        {/* Win Modal */}
+        <Modal name={"win"} title={"You Win!"} modalOpen={this.state.winOpen} toggleModal={this.toggleModal} button={this.endGame}>
+         Congratulations! You won the entire game!!
+        </Modal>
 
         {/* Modal Backdrop */}
         <div className={this.state.aboutOpen || this.state.levelOpen ?  "modal-backdrop" : "d-none"} onClick={() => this.toggleModal(this.state.aboutOpen ? "about" : "level")}></div>
